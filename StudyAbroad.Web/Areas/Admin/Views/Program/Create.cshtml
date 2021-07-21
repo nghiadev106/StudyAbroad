@@ -1,0 +1,109 @@
+﻿@model StudyAbroad.Web.Models.ProgramViewModel
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@section footerJS{
+    <script src="~/Assets/admin/bower_components/ckeditor/ckeditor.js"></script>
+    <script>
+
+        var editor1 = CKEDITOR.replace('detail', {
+            // customConfig: '/Assets/admin/bower_components/ckeditor/config.js',
+        });
+
+    </script>
+}
+<input type="hidden" id="success" value="@TempData["success"]" />
+<input type="hidden" id="info" value="@TempData["info"]" />
+<input type="hidden" id="warning" value="@TempData["warning"]" />
+<input type="hidden" id="error" value="@TempData["error"]" />
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            Thêm mới Chương trình - Dịch vụ
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="Admin/Home/Index"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
+            <li><a href="Admin/Program/Index">Chương trình - Dịch vụ</a></li>
+            <li class="active">Thêm Chương trình - Dịch vụ</li>
+        </ol>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        @using (Html.BeginForm("Create", "Program", FormMethod.Post, new { Area = "Admin", enctype = "multipart/form-data" }))
+                        {
+                            <div class="col-md-8">
+                                @Html.AntiForgeryToken()
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Tên Chương trình - Dịch vụ</label>
+                                    @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Mô tả</label>
+                                    @Html.TextAreaFor(model => model.Description, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Chi tiết</label>
+                                    @Html.TextAreaFor(model => model.Detail, new { @class = "form-control", @id = "detail" })
+                                    @Html.ValidationMessageFor(model => model.Detail, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Ngày bắt đầu</label>
+                                    @Html.TextBoxFor(model => model.DateWorkStart, "{0:yyyy-MM-ddTHH:mm:ss}", new { @class = "form-control", @type = "datetime-local" })
+                                    @Html.ValidationMessageFor(model => model.DateWorkStart, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Ngày kết thúc</label>
+                                    @Html.TextBoxFor(model => model.DateWorkEnd, "{0:yyyy-MM-ddTHH:mm:ss}", new { @class = "form-control", @type = "datetime-local" })
+                                    @Html.ValidationMessageFor(model => model.DateWorkStart, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Ghi chú</label>
+                                    @Html.TextAreaFor(model => model.Note, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Note, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Trạng thái</label>
+                                    <select class="form-control" id="Status" name="Status">
+                                        <option value="1" selected>Hoạt động</option>
+                                        <option value="0">Khóa</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-lg-4">
+                                        <input type="submit" value="Thêm mới" class="btn btn-success" />
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <a class="btn btn-danger" href="@Url.Action("Index", "Program", new { Area = "Admin" })">Quay lại</a>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </section>
+    <!-- /.content -->
+</div>
+
+
+
+

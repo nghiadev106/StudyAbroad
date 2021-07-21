@@ -1,0 +1,52 @@
+﻿@using StudyAbroad.Web.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Log in";
+}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>Đăng nhập</title>
+    <link href="~/Assets/pages/App_Themes/login.css" rel="stylesheet" />
+</head>
+<body>
+    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "login-form", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(false, "", new { @class = "error" })
+        <h1>Đăng nhập</h1>
+        <div class="txtb">
+            @Html.TextBoxFor(model => model.Email, new { type = "email" })
+            <span data-placeholder="Username"></span>
+        </div>
+        <div class="txtb">
+            @Html.PasswordFor(model => model.Password, new { type = "password" })
+            <span data-placeholder="Password"></span>
+        </div>
+        <div style="margin-bottom:30px;">
+            @Html.CheckBoxFor(model => model.RememberMe)
+            Nhớ mật khẩu?
+        </div>
+        <input type="submit" class="logbtn" value="Đăng nhập">
+        <div class="bottom-text">
+            Bạn chưa có tài khoản? <a href="/Account/Register">Đăng ký</a>
+        </div>
+    }
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        $(".txtb input").on("focus", function () {
+            $(this).addClass("focus");
+        });
+
+        $(".txtb input").on("blur", function () {
+            if ($(this).val() == "")
+                $(this).removeClass("focus");
+        });
+
+    </script>
+</body>
+</html>

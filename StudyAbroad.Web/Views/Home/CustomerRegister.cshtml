@@ -1,0 +1,96 @@
+﻿@model StudyAbroad.Web.Models.CustomerRegisterViewModel
+@{
+    ViewBag.Title = "Đăng ký";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div id="ctl00_divAlt1" class="altcontent1 container cmszone">
+
+
+    <div class='row Module Module-141'>
+        <ol class='breadcrumb'>
+            <li itemscope itemtype='http://data-vocabulary.org/Breadcrumb'><a href='/' class='itemcrumb' itemprop='url'><span itemprop='title'>Trang chủ</span></a></li>
+            <li itemscope itemtype='http://data-vocabulary.org/Breadcrumb'><a href='/Home/CustomerRegister' class='itemcrumb active' itemprop='url'><span itemprop='title'>Đăng ký</span></a></li>
+        </ol>
+    </div>
+
+</div>
+<main class="main container">
+    <section class="row">
+
+        <div id="ctl00_divCenter" class="middle-fullwidth col-sm-12">
+
+            <section class="clearfix contact-wrap">
+                <div class='col-sm-12 Module Module-54'>
+                    <div class='ModuleContent'>
+                        <h1 class="title-page">
+                            Đăng ký
+                        </h1>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 mrb20">
+                    <div class='contact-form Module Module-93'>
+                        <div class='ModuleContent'>
+                            <div class="wrap-contact">
+                                <form role="form"  action="/Home/CustomerRegister" method="post" ></form>
+                                    <form role="form"  action="/Home/CustomerRegister" method="post" >
+                                        <div class="form-group ct-name">
+                                            <label for="" class="label">Họ tên<span>*</span></label>
+                                            <input name="Name" type="text" maxlength="100" class="form-control" placeholder="Họ tên" />
+                                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                                        </div>
+                                        <div class="form-group ct-address">
+                                            <label for="" class="label">Địa chỉ</label>
+                                            <input name="Address" type="text" maxlength="255" class="form-control" placeholder="Địa chỉ" />
+                                            @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                                        </div>
+                                        <div class="form-group ct-email">
+                                            <label class="label">Email<span>*</span></label>
+                                            <input name="Email" type="email" maxlength="255" class="form-control" placeholder="Email" />                                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                        </div>
+                                        <div class="form-group ct-phone">
+                                            <label class="label">Điện thoại</label>
+                                            <input name="Phone" type="text" maxlength="255" class="form-control" placeholder="Điện thoại" />
+                                            @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                                        </div>
+                                        <div class="clear"></div>
+                                        <div class="form-group ct-button">
+                                            <div class="frm-btnwrap">
+                                                <div class="frm-btn">
+                                                    <input type="submit"value="Gửi"  class="btn btn-default" />
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </form>
+                                    <div class="clear"></div>
+                         
+                            </div>
+                        </div>
+                    </div>
+                </div>          
+                <div class='col-md-6 col-sm-12 mrb20 Module Module-149'>
+                    <div class='ModuleContent'>
+                        <h2>Công ty Cổ phần Thương mại Phát triển Kỹ thuật và Nhân lực Quốc tế (JVNET).</h2>
+                        <p>Địa chỉ : 30 Trần Cung - Từ Liêm - Hà Nội</p>
+                        <p>VPGD: Tòa nhà ND, số 17 ngõ 82, phố Dịch Vọng Hậu, Cầu Giấy, Hà Nội</p>
+                        <p>TEL: +84-243-7556251  </p>
+                        <p>FAX: +84-243-7556254 </p>
+                        <p>EMAIL: info@jvnet.com.vn</p>
+                        <br />
+                        <h2>Văn phòng đại diện tại tp Hồ Chí Minh</h2>
+                        <p>Địa chỉ: Số 21-23 đường 59 ( giao với đường Lê Hiến Mai), phường Thạnh Mỹ Lợi, quận 2, TP.HCM</p>
+                        <p>Điện thoại:028-62948878 / 028-62948869</p>
+                        <p>Fax: 028-62948895</p>
+                        <br />
+                        <h2>Văn phòng JVNET tại Đà Nẵng.</h2>
+                        <p>Địa chỉ: Địa chỉ : 418 Tôn Đức Thắng, Liên Chiểu, Đà Nẵng</p>
+                        <p>Điện thoại: +84-23-63611568</p>
+                        <br />
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+    </section>
+</main>

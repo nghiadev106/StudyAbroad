@@ -1,0 +1,76 @@
+﻿@model StudyAbroad.Data.Models.News
+@{
+    ViewBag.Title = "NewsDetail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="ctl00_divAlt1" class="altcontent1 container cmszone">
+
+
+    <div class='row Module Module-141'>
+        <ol class='breadcrumb'>
+            <li itemscope itemtype='http://data-vocabulary.org/Breadcrumb'><a href='/' class='itemcrumb' itemprop='url'><span itemprop='title'>Trang chủ</span></a></li>
+            <li itemscope itemtype='http://data-vocabulary.org/Breadcrumb'><a href='/News/Index' class='itemcrumb active' itemprop='url'><span itemprop='title'>Tin tức - Sự kiện</span></a></li>
+        </ol>
+    </div>
+
+</div>
+<main class="main container">
+    <section class="row">
+
+        <div id="ctl00_divCenter" class="col-md-9 col-main">
+            <div class='new Module Module-77'>
+                <div class='ModuleContent'>
+                    <div id="ctl00_mainContent_ctl00_ctl00_pnlInnerWrap">
+                        <section class="news-detail">
+                            <h1 class="title-page">@Model.Name</h1>
+                            <time>
+                                <i class="fa fa-calendar">
+                                </i> @String.Format("{0:dd/MM/yyyy}", Model.CreateDate)
+                            </time>
+                            <div class="clearfix mrb20">
+
+                                <p style="box-sizing: border-box; margin: 0px 0px 10px; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial; text-align: justify;">
+                                    <span style="font-family: Tahoma; font-size: 16px;">
+                                        <span style="text-align: left; font-size: 16px;"><strong><span style="font-size: 16px; color: #ff0000;">JVNET.vn</span> -     @Model.Description</strong></span><br>
+                                    </span>
+                                </p>
+                                <p dir="ltr" style="color: #000000; text-align: center;"><img src="@Model.Image" width="600" height="400" alt="@Model.Name" /></p>
+                            </div>
+                                   <p dir="ltr" style="color: #000000; text-align: center;"><img src="@Model.Image" width="600" height="400" alt="@Model.Name" /></p>
+                            <div class="clearfix mrb20">
+                                @Html.Raw(Model.Content)
+                            </div>
+
+                            
+                        </section>         
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div id="ctl00_divRight" class="col-md-3 col-right">
+            <div class='clearfix right-menu mrb20 Module Module-142'>
+                <div class='ModuleContent'>
+                   
+                </div>
+            </div><div class='clearfix mrb20 lien-ket Module Module-143'><div class='ModuleContent'><h2 class='module-title'>Liên kết</h2><a href="/dang-ky" ><img alt="" src="https://jvnet.vn/Data/Sites/1/media/lien-ket/lien-ket-01.jpg" /></a><a href="http://jvb.com.vn/" target="_blank"><img alt="" src="https://jvnet.vn/Data/Sites/1/media/lien-ket/lien-ket-02.png" /></a></div></div><div class='clearfix mrb30 quy-trinh Module Module-144'>
+                <div class='ModuleContent'>
+                    <h2 class='module-title'>Quy trình</h2><table>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <em class="fa fa-newspaper-o"></em>
+                                </td>
+                                <td>
+                                    <a href="/quy-trinh-tuyen-dung">Tìm hiểu về quy trình tuyển chọn, hồ sơ và thủ tục</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</main>

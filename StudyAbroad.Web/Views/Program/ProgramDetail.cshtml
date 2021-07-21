@@ -1,0 +1,90 @@
+﻿@model StudyAbroad.Data.Models.Program
+@{
+    ViewBag.Title = "Chương trình - Dịch vụ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="ctl00_divAlt1" class="altcontent1 container cmszone">
+
+
+    <div class='row Module Module-141'>
+        <ol class='breadcrumb'>
+
+            <li itemscope itemtype='http://data-vocabulary.org/Breadcrumb'><a href='/' class='itemcrumb' itemprop='url'><span itemprop='title'>Trang chủ</span></a></li>
+
+            <li itemscope itemtype='http://data-vocabulary.org/Breadcrumb'><a href='#' class='itemcrumb active' itemprop='url'><span itemprop='title'>Chương trình - Dịch vụ</span></a></li>
+
+
+        </ol>
+    </div>
+
+</div>
+<main class="main container">
+    <section class="row">
+
+        <div id="ctl00_divCenter" class="col-md-9 col-main">
+            <div class='Module Module-150'>
+                <div class='ModuleContent'>
+                    <div id="ctl00_mainContent_ctl01_ctl00_pnlInnerWrap">
+                        <section class="job-detail">
+                            <h1 class="title-page">@Model.Name</h1>
+                            <div class="clearfix mrb20">
+                                <span id="docs-internal-guid-20c6d810-7fff-b959-409e-70cf465158e7" style="font-size: 14px;">
+                                    <div class="clearfix mrb20">
+
+                                        <p style="box-sizing: border-box; margin: 0px 0px 10px; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial; text-align: justify;">
+                                            <span style="font-family: Tahoma; font-size: 16px;">
+                                                <span style="text-align: left; font-size: 16px;"><strong><span style="font-size: 16px; color: #ff0000;">JVNET.vn</span> -     @Model.Description</strong></span><br>
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <div>
+                                        @Html.Raw(Model.Detail)
+                                    </div>
+                                    <div style="color: #000000; text-align: justify;">
+                                        <br />
+                                    </div>
+                                </span>
+                                <div style="text-align: justify;">
+                                    <br />
+                                </div>
+                            </div>
+                            <div class="social text-right clearfix mrb20">
+                                <div class="face-like"><a class='fb-like' data-href='https://jvnet.vn/thong-tin-viec-lam-dao-tao/tuyen-60-nu-che-bien-thuc-pham-tai-nhat' data-send='false' data-layout='button_count' data-width='100' data-show-faces='false'></a></div>
+                                <div class="fb-share-button" data-layout="button_count">
+                                </div>
+                                <div class="tweet"><a class='twitter-share-button' title='Tweet This' href='https://twitter.com/share' data-url='https://jvnet.vn/thong-tin-viec-lam-dao-tao/tuyen-60-nu-che-bien-thuc-pham-tai-nhat' data-text='TUYỂN 60 NỮ CHẾ BIẾN THỰC PHẨM' data-count='horizontal'></a></div>
+                                <div class="google"><div class='g-plusone' data-size='medium' data-count='true' data-href='tuyen-60-nu-che-bien-thuc-pham-tai-nhat.html'></div></div>
+                            </div>
+                        </section>
+
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div id="ctl00_divRight" class="col-md-3 col-right">       
+            <div class='clearfix mrb20 lien-ket Module Module-143'><div class='ModuleContent'><h2 class='module-title'>Liên kết</h2><a href="/dang-ky"><img alt="" src="~/Assets/pages/Data/Sites/1/media/lien-ket/lien-ket-01.jpg" /></a><a href="http://jvb.com.vn/" target="_blank"><img alt="" src="~/Assets/pages/Data/Sites/1/media/lien-ket/lien-ket-02.png" /></a></div></div><div class='clearfix mrb30 quy-trinh Module Module-144'>
+                <div class='ModuleContent'>
+                    <h2 class='module-title'>Quy trình</h2><table>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <em class="fa fa-newspaper-o"></em>
+                                </td>
+                                <td>
+                                    <a href="../quy-trinh/quy-trinh-tuyen-dung-thuc-tap-sinh-lam-viec-tai-nhat-ban-cua-jvnet.html">Tìm hiểu về quy trình tuyển chọn, hồ sơ và thủ tục</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</main>
+
+

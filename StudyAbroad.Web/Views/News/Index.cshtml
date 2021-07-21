@@ -1,0 +1,154 @@
+﻿@model StudyAbroad.Web.Models.PaginationSet<StudyAbroad.Web.Models.NewsViewModel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="ctl00_divAlt1" class="altcontent1 container cmszone">
+
+
+    <div class='row Module Module-141'>
+        <ol class='breadcrumb'>
+
+            <li itemscope itemtype='http://data-vocabulary.org/Breadcrumb'><a href='/' class='itemcrumb' itemprop='url'><span itemprop='title'>Trang chủ</span></a></li>
+
+            <li itemscope itemtype='http://data-vocabulary.org/Breadcrumb'><a href='/tin-tuc-su-kien' class='itemcrumb' itemprop='url'><span itemprop='title'>Tin tức - Sự kiện</span></a></li>
+
+
+
+        </ol>
+    </div>
+
+</div>
+<main class="main container">
+    <section class="row">
+        <div id="ctl00_divCenter" class="col-md-9 col-main">
+            <div class='new Module Module-77'>
+                <div class='ModuleContent'>
+                    <h1 class="title-page">Tin tức - Sự Kiện</h1>
+                    <section class='row'>
+                        @if (Model.Count > 0)
+                        {
+                            foreach (var item in Model.Items)
+                            {
+                        <article class="news-item mrb30 col-sm-4">
+                            <a class="center-block text-center" href="/tin-tuc-su-kien/chi-tiet/@item.ID" target="_self" title="@item.Name">
+                                <img class="img-opacity" src="@item.Image" alt="@item.Name">
+                            </a>
+                            <h2>
+                                <a href="/tin-tuc-su-kien/chi-tiet/@item.ID" target="_self" title="@item.Name">@item.Name</a>
+                            </h2><time>@String.Format("{0:dd/MM/yyyy}", item.CreateDate)</time>
+                                 <p style="text-align: justify;">
+                                     @if (item.Description.Length > 100)
+                                     {
+                                         <span style="font-family: Arial; color: #0c0c0c;">@item.Description.Substring(0, 100)...</span>
+                                     }
+                                     else
+                                     {
+                                         <span style="font-family: Arial; color: #0c0c0c;">@item.Description</span>
+                                     }
+
+                                 </p>
+                            </article>
+                                }
+                            }
+                    </section>
+
+
+                    <div id="ctl00_mainContent_ctl00_ctl00_divPager" class="pages newspager">
+                        <div class="col-md-12" style="margin-bottom:30px;">
+                            @if (Model.TotalPages > 1)
+                            {
+                                // Create numeric links
+                                var startPageIndex = Math.Max(1, Model.Page - Model.MaxPage / 2);
+                                var endPageIndex = Math.Min(Model.TotalPages, Model.Page + Model.MaxPage / 2);
+
+                                <nav>
+                                    <ul class="pagination">
+                                        @if (Model.Page > 1)
+                                        {
+                                            <li class="page-item">
+                                                <a class="page-link" href="?page=1" aria-label="First">
+                                                    <i class="fa fa-angle-double-left"></i>
+                                                </a>
+                                            </li>
+                                            <li class="page-item">
+                                                <a class="page-link" href="?page=@(Model.Page-1)" aria-label="Previous">
+                                                    <i class="fa fa-angle-double-left"></i>
+                                                </a>
+                                            </li>
+                                        }
+                                        @for (int i = startPageIndex; i <= endPageIndex; i++)
+                                        {
+                                            if (Model.Page == i)
+                                            {
+                                                <li class="active page-item"><a class="page-link" href="?page=@i" title="Trang @i">@i</a></li>
+                                            }
+                                            else
+                                            {
+                                                <li class="page-item"><a class="page-link" href="?page=@i" title="Trang @i">@i</a></li>
+                                            }
+                                        }
+                                        @if (Model.Page < Model.TotalPages)
+                                        {
+                                            <li class="page-item">
+                                                <a class="page-link" href="?page=@(Model.Page+1)" aria-label="Next">
+                                                    <i class="fa fa-angle-double-right"></i>
+                                                </a>
+                                            </li>
+                                            <li class="page-item">
+                                                <a class="page-link" href="?page=@Model.TotalPages" aria-label="Last">
+                                                    <i class="fa fa-angle-double-right"></i>
+                                                </a>
+                                            </li>
+                                        }
+                                    </ul>
+                                </nav>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div id="ctl00_divRight" class="col-md-3 col-right">
+            <div class='clearfix right-menu mrb20 Module Module-142'>
+                <div class='ModuleContent'>
+
+                </div>
+            </div><div class='clearfix mrb20 lien-ket Module Module-143'><div class='ModuleContent'><h2 class='module-title'>Liên kết</h2><a href="/dang-ky"><img alt="" src="https://jvnet.vn/Data/Sites/1/media/lien-ket/lien-ket-01.jpg" /></a><a href="http://jvb.com.vn/" target="_blank"><img alt="" src="https://jvnet.vn/Data/Sites/1/media/lien-ket/lien-ket-02.png" /></a></div></div><div class='clearfix mrb30 quy-trinh Module Module-144'>
+                <div class='ModuleContent'>
+                    <h2 class='module-title'>Quy trình</h2><table>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <em class="fa fa-newspaper-o"></em>
+                                </td>
+                                <td>
+                                    <a href="/quy-trinh-tuyen-dung">Tìm hiểu về quy trình tuyển chọn, hồ sơ và thủ tục</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div><div class='clearfix mrb30 quy-trinh Module Module-144'>
+                <div class='ModuleContent'>
+                    <h2 class='module-title'>Quy trình</h2><table>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <em class="fa fa-newspaper-o"></em>
+                                </td>
+                                <td>
+                                    <a href="/quy-trinh-tuyen-dung">Tìm hiểu về quy trình tuyển chọn, hồ sơ và thủ tục</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+    </section>
+</main>
+

@@ -1,0 +1,91 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+    var lstNewsCategories = (List<StudyAbroad.Web.Models.NewsCategoryViewModel>)ViewBag.ListNewsCategory;
+}
+
+<input type="hidden" id="success" value="@TempData["success"]" />
+<input type="hidden" id="info" value="@TempData["info"]" />
+<input type="hidden" id="warning" value="@TempData["warning"]" />
+<input type="hidden" id="error" value="@TempData["error"]" />
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            Quản lý danh mục tin tức
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="Admin/Home/Index"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
+            <li><a href="Admin/NewsCategory/Index">Danh mục</a></li>
+            <li class="active">Danh sách danh mục</li>
+        </ol>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title"> <a class="btn btn-primary" href="@Url.Action("Create", "NewsCategory", new { Area = "Admin" })">Thêm mới</a></h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <table id="example1" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>STT</th>
+                                    <th>Tên danh mục</th>
+                                    <th>Mô tả</th>
+                                    <th>Ngày tạo</th>
+                                    <th>Trạng thái</th>
+                                    <th>#</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{
+                                    if (lstNewsCategories.Count() > 0)
+                                    {
+                                        var stt = 0;
+                                        foreach (var item in lstNewsCategories)
+                                        {
+                                            <tr>
+                                                <td>@Html.Raw(stt = stt + 1)</td>
+                                                <td>@item.Name</td>
+                                                <td>@item.Description</td>
+                                                <td>@String.Format("{0:MM/dd/yyyy}", item.CreateDate)</td>
+                                                @if (item.Status == 1)
+                                                {
+                                                    <td><span class="btn-success">Hoạt động</span></td>
+                                                }
+                                                else
+                                                {
+                                                    <td><span class="btn-danger"> Đang khóa</span></td>
+                                                }
+                                                <td>
+                                                    <a href="/Admin/NewsCategory/Edit/@item.ID" class="btn btn-primary glyphicon glyphicon-edit"></a>
+                                                    <a class="btn btn-danger glyphicon glyphicon-trash" onclick="return confirm('Bạn có muốn xóa không?');" href="@Url.Action("Delete","NewsCategory")/@item.ID"></a>
+                                                </td>
+                                            </tr>
+                                        }
+                                    }
+                                }
+
+                            </tbody>
+
+                        </table>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </section>
+    <!-- /.content -->
+</div>
+
+

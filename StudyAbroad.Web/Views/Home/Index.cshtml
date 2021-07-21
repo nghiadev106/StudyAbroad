@@ -1,0 +1,209 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div id="ctl00_divAlt1" class="altcontent1 container cmszone">
+    <div class='slidehome mrb30 row Module Module-76'>
+        <div class='ModuleContent'>
+            <div class="tp-banner">
+                <ul>
+                    <li data-transition="fade" data-slotamount="7" data-masterspeed="1500" data-link="">
+                        <img data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat" src="~/Assets/pages/Data/Sites/1/Banner/1banner-trang-chu-26-6.jpg" alt="">
+                        <div class="tp-caption start" data-x="0" data-hoffset="0" data-y="center" data-voffset="0" data-speed="800" data-start="0" data-easing="Power4.easeOut" data-endspeed="300" data-endeasing="Power1.easeIn" data-captionhidden="off" style="z-index: 6">
+                        </div>
+                    </li>
+                    <li data-transition="fade" data-slotamount="7" data-masterspeed="1500" data-link="">
+                        <img data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat" src="~/Assets/pages/Data/Sites/1/Banner/121slide2-2606.jpg" alt="">
+                        <div class="tp-caption start" data-x="0" data-hoffset="0" data-y="center" data-voffset="0" data-speed="800" data-start="0" data-easing="Power4.easeOut" data-endspeed="300" data-endeasing="Power1.easeIn" data-captionhidden="off" style="z-index: 6">
+                        </div>
+                    </li>
+                    <li data-transition="fade" data-slotamount="7" data-masterspeed="1500" data-link="">
+                        <img data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat" src="~/Assets/pages/Data/Sites/1/Banner/121banner3-2606.png" alt="">
+                        <div class="tp-caption start" data-x="0" data-hoffset="0" data-y="center" data-voffset="0" data-speed="800" data-start="0" data-easing="Power4.easeOut" data-endspeed="300" data-endeasing="Power1.easeIn" data-captionhidden="off" style="z-index: 6">
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>
+<main class="main container">
+    <section class="row">
+
+        <div id="ctl00_divCenter" class="middle-fullwidth col-sm-12">
+
+            <div class='clearfix Module Module-154'>
+                <div class='ModuleContent'>
+                    <h4 class="title-home">Đơn hàng nổi bật</h4>
+                    <div class="row wrap-highlight">
+                        @{
+                            var orderHot = (List<StudyAbroad.Web.Models.OrderViewModel>)ViewBag.orderHotModel;
+                            foreach (var item in orderHot)
+                            {
+                                <div class="col-md-3 col-sm-6 mrb30">
+                                    <div class="item-highlight">
+                                        <h3>
+                                            <a target="_self" href="/don-hang/chi-tiet/@item.ID" title="@item.Name">@item.Name</a>
+                                        </h3>
+                                        <p>Số lượng: <strong>@item.Count</strong></p>
+                                        <p>Nơi làm việc: <strong>@item.Address</strong></p>
+                                        <p>Lương: <strong>@String.Format("{0:#,##0}", item.Salary) triệu</strong></p>
+                                        <p>Ngày tuyển: <strong>@String.Format("{0:dd/MM/yyyy}", item.TestDay)</strong></p>
+                                    </div>
+                                    <a class="center-block text-center" href="/don-hang/chi-tiet/@item.ID">
+                                        <img class="img-opacity" src="@item.Image" alt="@item.Name">
+                                    </a>
+                                </div>
+                            }
+                        }
+
+                    </div>
+            </div><section class="row">
+                <div class='col-md-3 col-sm-5 mrb30 Module Module-155'>
+                    <div class='ModuleContent'>
+                        <h2 class='module-title'>Video</h2><a class="map-ifarme center-block mrb15" href="https://www.youtube.com/embed/e3NBPfeeIEA"><img alt="" src="~/Assets/pages/Data/Sites/1/media/Default/kenh-youtube-cua-jvnet.jpg" style="width: 283px; height: 217px;" /></a>
+                        <p>
+                            Một câu chuyện cảm động về sự hy sinh của người bố đi XKLĐ Nhật mong muốn chữa bệnh cho con gái yêu của mình.
+                        </p>
+                    </div>
+                </div><div class='col-md-9 col-sm-7 mrb30 Module Module-156'>
+                    <div class='ModuleContent'>
+                        <h4 class="title-home">Danh sách các đơn hàng mới nhất</h4>
+                        <div class="job-list table-responsive">
+                            <table class="table table-striped text-center">
+                                <tr>
+                                    <th class="text-left">Ngành nghề</th>
+                                    <th class="text-center">Số lượng</th>
+                                    <th class="text-center">Nơi làm việc</th>
+                                    <th class="text-center">Lương</th>
+                                    <th class="text-center">Ngày tuyển</th>
+                                </tr>
+                                @{
+                                    var lstOrder = (List<StudyAbroad.Web.Models.OrderViewModel>)ViewBag.lstOrderModel;
+                                    foreach (var item in lstOrder)
+                                    {
+                                        <tr>
+                                            <td class="text-left">
+                                                <a href="/don-hang/chi-tiet/@item.ID" target="_self" title="@item.Name">@item.Name</a>
+                                            </td>
+                                            <td>@item.Count</td>
+                                            <td>@item.Address</td>
+                                            <td>@item.Salary triệu</td>
+                                            <td>@String.Format("{0:dd/MM/yyyy}", item.TestDay)</td>
+                                        </tr>
+                                    }
+                                    }
+                                    </table>
+                        </div>
+                    </div>
+                </div>
+            </section><div class='tim-hieu mrb35 clearfix Module Module-157'>
+                <div class='ModuleContent'>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <em class="fa fa-info"></em>
+                                </td>
+                                <td>
+                                    <h4>Lựa chọn - Đăng ký đơn hàng trước khi nộp hồ sơ tham gia!</h4>
+                                    Bạn muốn lựa chọn đơn hàng trước khi nộp hồ sơ tham gia. Bạn chưa tìm được đơn hàng phù hợp. Hãy để nhân viên JVNET tư vấn đơn hàng cho bạn bằng cách khai thông tin vào mẫu ngay bây giờ.
+                                </td>
+                                <td>
+                                    <a href="/dang-ky">Đăng ký ONLINE</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <hr color="white" size="1" />
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <em class="fa fa-newspaper-o"></em>
+                                </td>
+                                <td>
+                                    <h4>Tìm hiểu về quy trình tuyển chọn, hồ sơ và thủ tục</h4>
+                                    Với những thành công đã đạt được trong việc đưa thực tập sinh ra nước ngoài làm việc, Công ty JVNET khẳng định là một sự lựa chọn đúng đắn cho các bạn.
+                                </td>
+                                <td>
+                                    <a href="/quy-trinh-tuyen-dung">&nbsp;&nbsp;XEM    QUY  TRÌNH&nbsp;&nbsp;</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div><div class='clearfix service-menu Module Module-158'>
+                <div class='ModuleContent'>
+                    <h4 class="title-home">chương trình và dịch vụ</h4>
+                    <nav class="row">
+                        @{
+                            var lstProgram = (List<StudyAbroad.Web.Models.ProgramViewModel>)ViewBag.ProgramModel;
+                            foreach (var item in lstProgram)
+                            {
+                                <div class="col-md-3 col-sm-6 mrb30">
+                                    <table>
+                                        <tr>
+                                            <td><img src="~/Assets/pages/Data/Sites/1/media/ct-dv/1.png" alt="@item.Name">
+                                            <td>
+                                                <h3><a href="/chuong-trinh-dich-vu/chi-tiet/@item.ID" target="_self">@item.Name</a></h3>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <div class="clearfix mrb15">@item.Description</div><a class="read-more" href="/chuong-trinh-dich-vu/chi-tiet/@item.ID" target="_self">| Xem thêm</a>
+                                </div>
+                            }
+                         }
+                   </nav>
+                </div>
+            </div>
+
+        </div>
+            </div>
+    </section>
+</main>
+<div id="ctl00_divAltContent2" class="altcontent2 cmszone">
+
+    <div class='news-home clearfix Module Module-159'>
+        <div class='ModuleContent'>
+            <section class="container">
+                <h4><strong>TIN TỨC </strong>  <span>|</span>   SỰ KIỆN</h4>
+                <div class="row">
+                    @{
+                        var lstNews = (List<StudyAbroad.Web.Models.NewsViewModel>)ViewBag.NewsModel;
+                        foreach (var item in lstNews)
+                        {
+                            <div class="col-md-3 col-sm-6 mrb30">
+                                <div class="newhome-item">
+                                    <a class="center-block text-center" target="_self" href="/News/NewsDetail/@item.ID" title="@item.Name">
+                                        <img class="img-opacity" src="@item.Image" alt="@item.Name">
+                                    </a>
+                                    <div class="newshome-desc">
+                                        <h5>
+                                            <a target="_self" href="/tin-tuc-su-kien/chi-tiet/@item.ID" title="@item.Name">@item.Name</a>
+                                        </h5>
+                                        <time>@String.Format("{0:dd/MM/yyyy}", item.CreateDate)</time>
+                                        <div class="clearfix">
+                                            <p style="text-align: justify;">
+                                                @if (item.Description.Length > 199)
+                                                {
+                                                    <span style="font-family: Arial; color: #0c0c0c;">@item.Description.Substring(0, 199)...</span>
+                                                }
+                                                else
+                                                {
+                                                    <span style="font-family: Arial; color: #0c0c0c;">@item.Description</span>
+                                                }
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            }
+                        }
+                        </div>
+            </section>
+        </div>
+    </div>
+
+</div>
